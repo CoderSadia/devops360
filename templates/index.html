@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevOps360 - AWS Deployment Service</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">🏆 AWS Certified DevOps Engineer — Professional</div>
+      <h1>Deploy Your Website on AWS<br><span>Live & Secure with SSL</span></h1>
+      <p class="subtitle">WordPress • Shopify • Node.js • Laravel • Python • Java</p>
+      <a href="#order" class="btn-order">ORDER NOW</a>
+    </div>
+
+    <div class="tech-icons">
+      <div class="icon-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="WordPress">
+        <span>WordPress</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJS">
+        <span>Node.js</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+        <span>Python</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+        <span>Docker</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+        <span>GitHub</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="services">
+    <h2>What I Offer</h2>
+    <div class="services-grid">
+      {% for service in services %}
+      <div class="service-card">
+        <div class="service-icon">{{ service.icon }}</div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ORDER SECTION -->
+  <section class="order-section" id="order">
+    <h2>Place Your Order</h2>
+    <div class="order-form">
+      <input type="text" id="name" placeholder="Your Name" />
+      <input type="email" id="email" placeholder="Your Email" />
+      <select id="service">
+        <option value="">Select a Service</option>
+        <option>AWS EC2/S3 Deploy</option>
+        <option>SSL Certificate Setup</option>
+        <option>CI/CD Pipeline</option>
+        <option>Docker & Containerization</option>
+        <option>Domain & DNS Setup</option>
+        <option>Database Setup (RDS/MySQL)</option>
+        <option>Auto-scaling & Load Balancer</option>
+      </select>
+      <textarea id="message" placeholder="Describe your project..."></textarea>
+      <button onclick="placeOrder()">🚀 Submit Order</button>
+      <p id="order-status"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 DevOps360 — AWS Certified DevOps Engineer Professional</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
