@@ -88,3 +88,14 @@ output "public_ip" {
   value       = aws_instance.devops360.public_ip
   description = "EC2 Public IP Address"
 }
+
+# Elastic IP
+resource "aws_eip" "devops360_eip" {
+  instance = aws_instance.devops360.id
+  domain   = "vpc"
+}
+
+output "elastic_ip" {
+  value       = aws_eip.devops360_eip.public_ip
+  description = "Fixed Elastic IP"
+}
